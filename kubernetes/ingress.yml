@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: flask-ingress
+  annotations:
+spec:
+  rules:
+  - host: hello.world
+    http:
+      paths:
+      - path: /hello_app
+        backend:
+          serviceName: flask
+          servicePort: 5000

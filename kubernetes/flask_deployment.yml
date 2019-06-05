@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: flask
+  labels:
+    name: flask
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+      - name: flask
+        image: hello_app:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
+      restartPolicy: Always
